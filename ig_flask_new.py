@@ -41,5 +41,5 @@ if __name__ == '__main__':
         instance = startup(data_id="1",data=data, ignore_duplicate=True)
         return redirect(f"/dtale/main/{instance._data_id}", code=302)
 
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="instamedtale.herokuapp.com", port=5000, debug=True)
     
