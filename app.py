@@ -1,5 +1,5 @@
 import os
-from flask import redirect
+from flask import redirect, send_from_directory, url_for
 import pandas as pd
 from dtale.app import build_app
 from dtale.views import startup
@@ -10,6 +10,12 @@ import business_discovery_new
 additional_templates = os.path.join(os.path.dirname(__file__), "templates")
 app = build_app(reaper_on=False, additional_templates=additional_templates)
 # app = Flask(__name__)
+
+CUSTOM_STATIC_PATH=app.root_path + '/static/'
+
+@app.route('/static/<path:filename>')
+def custom_static(filename):
+    return send_from_directory(app.config['CUSTOM_STATIC_PATH'], filename)
 
 @app.route("/")
 def upload_file():
