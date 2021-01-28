@@ -1,19 +1,186 @@
-<html>
-   <body>
-      <h2>Upload Username list to Fetch Data</h2>
-      <form action = "/uploader" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" />
-         <input type = "submit"/>
-      </form>   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: white;
+            /* overflow: hidden; */
+        }
 
-      <h2>Upload Data Directly</h2>
+        #fileimage{
+            width: 75mm;
+            top: 100px;
+            left: 250px;
+            position: absolute;
+            
+        }
+        
+        #fileimage2{
+            width: 75mm;
+            top: 100px;
+            left: 750px;
+            position: absolute;
+            
+        }
 
-      <form action = "/uploader2" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" />
-         <input type = "submit"/>
-      </form>   
+        #submit1{
+            width: 35mm;
+            left: 330px;
+            top: 100mm;
+            z-index: 1;
+            position: absolute;
+            transition-duration:0.5s ; 
+            outline:none;
+        }
 
-   </body>
+        #submit1:hover{
+        transform:scale(1.2);
+        }
+
+        #submit2{
+            width: 35mm;
+            left: 830px;
+            top: 100mm;
+            z-index: 1;
+            position: absolute;
+            transition-duration:0.5s ; 
+            outline:none;
+        }
+
+        #submit2:hover{
+        transform:scale(1.2);
+        }
+
+        #text1{
+            font-size: 25px;
+            font-family: 'Gill Sans';
+            left: 350px;
+            top: 125mm;
+            z-index: 1;
+            position: absolute;
+            transition-duration:0.5s ; 
+            cursor: pointer;  
+        }
+
+        #text1:hover{
+        transform:scale(1.2);
+        }
+
+        #text2{
+            font-size: 25px;
+            font-family: 'Gill Sans';
+            left: 850px;
+            top: 125mm;
+            z-index: 1;
+            position: absolute;
+            transition-duration:0.5s ; 
+            cursor: pointer;  
+        }
+
+        #text2:hover{
+        transform:scale(1.2);
+        }
+
+
+        #sub_form{
+            cursor: pointer;
+
+        }
+
+        #choosefile{
+            top: 265px;
+            left: 310px;
+            position: absolute;
+            /* display: None; */
+        }
+
+        #choosefile2{
+            top: 265px;
+            left: 810px;
+            position: absolute;
+            /* display: None; */
+        }
+        
+        h1{
+            left: 270px;
+            top: 15px;
+            font-size: 8mm;
+            position: absolute;
+        }
+
+        h2{
+            top: 10px;
+            left: 800px;
+            font-size: 8mm;
+            position: absolute;
+        }
+
+        .centered {
+        position: fixed;
+        top: 0%;
+        left: 5%;
+        transform: translate(-50%, -50%);
+        }
+
+        .centered2 {
+        position: fixed;
+        top: 0%;
+        left: 15%;
+        transform: translate(-25%, -25%);
+        }
+        
+    </style>
+
+
+    <title>INSTAME API</title>
+</head>
+
+<body>
+    <div class="centered">
+    <h1>Username List</h1>
+
+    <img id="fileimage" src="{{url_for('custom_static', filename='phone_mockup_f.png')}}" alt="Workplace" usemap="#workmap">
+    <map name="workmap">
+        <label  for="choosefile"><area id="sub_form" shape="rect" coords="55,120,233,155" ></label>
+      </map>
+    
+    <form  action="/uploader" method="POST" enctype="multipart/form-data">
+        <input   id="choosefile" type="file"  name="file" />
+
+        <label for="submit1"><h1 id="text1"> SUBMIT</h2></label> 
+
+        <input id="submit1" type="image" src="{{url_for('custom_static', filename='7dbd0b51c20a695901a84c4c083500f6.png')}}" />
+    </form> 
+    </div>
+
+    <div class="centered2">
+    <h2>Existing CSV</h2>
+
+    <img id="fileimage2" src="{{url_for('custom_static', filename='phone_mockup_f.png')}}" alt="Workplace" usemap="#workmap2">
+    <map name="workmap2">
+        <label  for="choosefile2"><area id="sub_form" shape="rect" coords="55,120,233,155"></label>
+      </map>
+    
+    <form  action="/uploader2" method="POST" enctype="multipart/form-data">
+        <input   id="choosefile2" type="file"  name="file" />
+
+        <label for="submit2"><h1 id="text2"> SUBMIT</h2></label> 
+
+        <input id="submit2" type="image" src="{{url_for('custom_static', filename='7dbd0b51c20a695901a84c4c083500f6.png')}}" />
+    </form> 
+    </div>
+
+
+
+      <!-- <h2 id="data">Upload Data Directly</h2>
+     <form action="/uploader2" method="POST" enctype="multipart/form-data"><input id="secondinput" type="file" name="file" />
+     <input id="submit2" type="submit"/></form> 
+    -->
+    
+
+
+
+</body>
+
 </html>
